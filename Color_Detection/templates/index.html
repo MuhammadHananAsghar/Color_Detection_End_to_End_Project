@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color Detection Project</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}">
+</head>
+
+<body>
+    <form class="center" onsubmit="event.preventDefault();">
+        <span class="header">Color Detection (Muhammad Hanan Asghar)</span>
+        <div class="form-input">
+            <label for="file-up">Upload Image</label>
+            <input type="file" name="" id="file-up" accept="image/*" onchange="preview(event);">
+            <div class="preview">
+                <img id="file-up-preview">
+            </div>
+        </div>
+        <div class="group-radio">
+            <div class="radio-button-1">
+                <input type="radio" id="blue" name="color" class="color" value="Blue" checked>
+                <label for="blue">Blue</label>
+            </div>
+            <div class="radio-button-2">
+                <input type="radio" id="purple" name="color" class="color" value="Purple">
+                <label for="purple">Purple</label>
+            </div>
+            <div class="radio-button-3">
+                <input type="radio" id="green" name="color" class="color" value="Green">
+                <label for="green">Green</label>
+            </div>
+            <div class="radio-button-4">
+                <input type="radio" id="red" name="color" class="color" value="Red">
+                <label for="red">Red</label>
+            </div>
+            <div class="radio-button-5">
+                <input type="radio" id="orange" name="color" class="color" value="Orange">
+                <label for="orange">Orange</label>
+            </div>
+            <div class="radio-button-6">
+                <input type="radio" id="yellow" name="color" class="color" value="Yellow">
+                <label for="yellow">Yellow</label>
+            </div>
+            <div class="radio-button-7">
+                <input type="radio" id="brown" name="color" class="color" value="Brown">
+                <label for="brown">Brown</label>
+            </div>
+            <div class="radio-button-8">
+                <input type="radio" id="pink" name="color" class="color" value="Pink">
+                <label for="pink">Pink</label>
+            </div>
+        </div>
+        <button class="button" id="submit" type="submit">
+            Detect
+        </button>
+    </form>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script type="text/javascript">
+        function preview(event) {
+            if (event.target.files.length > 0) {
+                var src = URL.createObjectURL(event.target.files[0]);
+                var prev = document.getElementById("file-up-preview");
+                prev.src = src;
+                prev.style.display = "block";
+            }
+        }
+    </script>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+</body>
+
+</html>
